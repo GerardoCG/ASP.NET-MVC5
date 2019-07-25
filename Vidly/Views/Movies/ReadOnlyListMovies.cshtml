@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "ListMovies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+<table id="tableMovie" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+    </tbody>
+</table>
+
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+
+            var table = $("#tableMovie").DataTable({
+                ajax: {
+                    url: "/api/movies",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name"
+                    },
+                    {
+                        data: "genderType.name"
+                    }
+                ]
+            });
+           
+        });
+    </script>
+
+}
